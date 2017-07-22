@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+      
+<hibernate-mapping package="com.jsu.po">
+
+	<class name="Friends" table="friends" catalog="conveniently">
+
+		<id name="_id" column="_id" type="string">
+		</id>
+
+		<property name="_uid" column="_uid" type="string"
+			length="255" unique="false" />
+			
+		<property name="_fid" column="_fid" type="string"
+			length="255" unique="false" />
+		
+		<property name="group_id" column="group_id" type="string"
+			length="255" unique="false" />
+		
+		<property name="_fname" column="_fname" type="string"
+			length="255" unique="false" />
+	</class>
+	
+</hibernate-mapping>

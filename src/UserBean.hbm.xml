@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+      
+<hibernate-mapping package="com.jsu.po">
+
+	<class name="UserBean" table="UserBean" catalog="conveniently">
+
+		<id name="userphone" column="userphone" type="string">
+		</id>
+
+		<property name="username" column="username" type="string"
+			length="255" unique="false" />
+			
+		<property name="userimg" column="userimg" type="string"
+			length="255" unique="false" />
+		
+		<property name="password" column="password" type="string"
+			length="255" unique="false" />
+			
+		<property name="token" column="token" type="string"
+			length="255" unique="false" />	
+		
+	</class>
+	
+</hibernate-mapping>

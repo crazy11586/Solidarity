@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+      
+<hibernate-mapping package="com.jsu.po">
+
+	<class name="MyMark" table="mymark" catalog="conveniently">
+
+		<id name="user_phone" column="user_phone" type="string">
+		</id>
+
+		<property name="user_name" column="user_name" type="string"
+			length="255" unique="false" />
+			
+		<property name="longitude" column="longitude" type="double"/>
+		
+		<property name="latitude" column="latitude" type="double"/>
+		<property name="address" column="address" type="string"
+			length="255" unique="false" />
+	</class>
+	
+</hibernate-mapping>

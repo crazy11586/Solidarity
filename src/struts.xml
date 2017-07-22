@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 
+	<package name="struts2" extends="struts-default"  namespace="/">
+        <action name="login" class="com.jsu.action.LoginAction">
+            <result name="success" type="redirect">/index.jsp</result>
+        </action>
+    </package>
+     -->
+    <package name="json" extends="json-default" namespace="/">  
+    
+    	<action name="login" class="com.jsu.action.LoginAction" method="Test">
+            <result name="success" type="json">  
+                        <param name="root">list</param>  
+            </result> 
+        </action>
+        
+        <action name="getgroup" class="com.jsu.action.FriendGroup" method="Test">
+        
+            <result name="success" type="json">  
+                    <param name="root">list2</param>  
+            </result>
+             
+        </action>
+        
+        <action name="addfriend" class="com.jsu.action.FriendAction" method="Add">
+        
+            <result name="success" type="json">  
+                    <param name="root">list</param>  
+            </result>
+             
+        </action>
+        
+         <action name="queryfriend" class="com.jsu.action.FriendAction" method="Query">
+        
+            <result name="success" type="json">  
+                    <param name="root">list</param>  
+            </result>
+             
+        </action>
+        <action name="position" class="com.jsu.action.PositionAction" method="Test">
+            <result name="success" type="json">  
+                 <param name="root">list</param>  
+            </result> 
+        </action>
+        
+        <action name="GetDataAction" class="com.jsu.action.GetDataAction" method="Test">  
+            <result name="success" type="json">  
+                 <param name="root">list</param>  
+            </result>  
+        </action>  
+   </package> 
+        
+        <constant name="struts.i18n.encoding" value="utf-8"></constant>
+</struts>
