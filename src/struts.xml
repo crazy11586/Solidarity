@@ -13,11 +13,25 @@
      -->
     <package name="json" extends="json-default" namespace="/">  
     
+    	<action name="addaddress" class="com.jsu.action.AddressAction" method="Add">
+            <result name="success" type="json">  
+                        <param name="root">list</param>  
+            </result> 
+        </action>
+        
+        <action name="queryaddress" class="com.jsu.action.AddressAction" method="Query">
+            <result name="success" type="json">  
+                        <param name="root">list</param>  
+            </result> 
+        </action>
+    	
     	<action name="login" class="com.jsu.action.LoginAction" method="Test">
             <result name="success" type="json">  
                         <param name="root">list</param>  
             </result> 
         </action>
+        
+        
         
         <action name="getgroup" class="com.jsu.action.FriendGroup" method="Test">
         
@@ -48,11 +62,11 @@
             </result> 
         </action>
         
-        <action name="GetDataAction" class="com.jsu.action.GetDataAction" method="Test">  
+         <action name="usercondition" class="com.jsu.action.UserConditionAction" method="Query">
             <result name="success" type="json">  
                  <param name="root">list</param>  
-            </result>  
-        </action>  
+            </result> 
+        </action>
    </package> 
         
         <constant name="struts.i18n.encoding" value="utf-8"></constant>

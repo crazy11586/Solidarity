@@ -7,3 +7,5 @@
 /com/
 /hibernate.cfg.xml
 /struts.xml
+/UsersCondition.hbm.xml
+/Address.hbm.xml

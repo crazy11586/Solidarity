@@ -19,12 +19,12 @@ public class ApplicationContextHelper  implements ApplicationContextAware
 
     public void test()
     {
-        // 使用ApplicationContext 的实例做你想做的事情,^_^
-        // 如发布事件等:applicationContext.publishEvent(event);
+        // 使锟斤拷ApplicationContext 锟斤拷实锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷,^_^
+        // 锟界发锟斤拷锟铰硷拷锟斤拷:applicationContext.publishEvent(event);
     }
     
     public static Object getBean(String beanName) {  
-    	System.out.println("getbean"+System.currentTimeMillis());
+    	
         return applicationContext.getBean(beanName);  
     }  
 }

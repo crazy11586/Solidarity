@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+      
+<hibernate-mapping package="com.jsu.po">
+
+	<class name="Address" table="address" catalog="conveniently">
+
+		<id name="_uid" column="_uid" type="string">
+		</id>
+
+		<property name="user_name" column="user_name" type="string"
+			length="20" unique="false" />	
+			
+		<property name="user_phone" column="user_phone" type="string"
+			length="11" unique="false" />
+			
+		<property name="phone" column="phone" type="string"
+			length="11" unique="false" />
+			
+		<property name="user_address" column="user_address" type="string"
+			length="255" unique="false" />
+			
+	</class>
+	
+</hibernate-mapping>

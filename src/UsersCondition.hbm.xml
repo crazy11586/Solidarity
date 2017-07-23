@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+      
+<hibernate-mapping package="com.jsu.po">
+
+	<class name="UserCondition" table="user_condition" >
+
+		<id name="condition_id" column="condition_id" >
+		</id>
+
+		<property name="user_total_nub" column="user_total_nub" type="string"/>
+			
+		<property name="user_total_time" column="user_total_time" type="string" />
+		
+		<property name="user_score" column="user_score" type="double"/>
+		
+		<property name="user_total_dist" column="user_total_dist" />
+		
+		<property name="user_phone" column="user_phone"  />
+
+		<property name="user_state" column="user_state" type="int" />
+	</class>
+	
+</hibernate-mapping>
