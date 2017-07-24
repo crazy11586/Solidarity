@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+      
+<hibernate-mapping package="com.jsu.po">
+
+	<class name="Order" table="orders" catalog="conveniently">
+
+		<id name="order_id" column="order_id" type="int">
+		</id>
+		
+		<property name="order_no" column="order_no" type="string"
+			length="20" unique="false" />	
+			
+		<property name="user_phone" column="user_phone" type="string"
+			length="20" unique="false" />
+			
+		<property name="create_addr" column="create_addr" type="string"
+			length="45" unique="false" />
+			
+		<property name="order_delivery_address_uid" column="order_delivery_address_uid" type="string"
+			length="255" unique="false" />
+			
+		<property name="order_shipping_address_uid" column="order_shipping_address_uid" type="string"
+			length="255" unique="false" />
+			
+		<property name="order_shopping_address_uid" column="order_shopping_address_uid" type="string"
+			length="255" unique="false" />
+			
+		<property name="order_shopping_address" column="order_shopping_address" type="string"
+			length="255" unique="false" />
+			
+		<property name="order_delivery_address" column="order_delivery_address" type="string"
+			length="255" unique="false" />
+			
+		<property name="order_shipping_address" column="order_shipping_address" type="string"
+			length="255" unique="false" />
+			
+		<property name="order_kind" column="order_kind" type="int"
+			 unique="false" />
+			
+		<property name="order_price" column="order_price" type="double"
+			 unique="false" />
+			
+		<property name="order_desc" column="order_desc"  />
+			
+		<property name="order_picktime" column="order_picktime" type="date"
+			unique="false" />
+			
+		<property name="order_insurance" column="order_insurance" type="int"
+			unique="false" />
+			
+		<property name="order_price_level" column="order_price_level" type="int"
+			unique="false" />			
+		
+		<property name="user_order_statement_id" column="user_order_statement_id" type="string"
+			unique="false" />			
+	</class>
+</hibernate-mapping>

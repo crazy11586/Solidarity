@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+      
+<hibernate-mapping package="com.jsu.po">
+
+	<class name="Image" table="image" catalog="conveniently">
+
+		<id name="_uid" column="_uid" type="string">
+		</id>
+
+		<property name="image_id" column="image_id" type="string"
+			length="255" unique="false" />
+			
+		<property name="image_url" column="image_url" type="string"
+			length="255" unique="false" />
+			
+	</class>
+	
+</hibernate-mapping>
