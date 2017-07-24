@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import com.jsu.dao.IUserDaoImpl;
+import com.jsu.po.Image;
 import com.jsu.po.MyMark;
 import com.jsu.po.UserBean;
 import com.jsu.service.IUserService;
@@ -78,6 +79,16 @@ public class UserService implements IUserService{
 		return user_imple.QueryUser(pattern);
 	}
 	
-	
+	@Override
+	public void SaveImage(Image image) throws SQLException {
+		// TODO Auto-generated method stub
+		user_imple.SaveImage(image);
+	}
+
+	@Override
+	public List QueryImage(String image_id) throws SQLException {
+		// TODO Auto-generated method stub
+		return user_imple.QueryImage(image_id);
+	}
 
 }

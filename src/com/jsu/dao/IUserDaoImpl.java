@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
 import com.jsu.Idao.IUserDao;
+import com.jsu.po.Image;
 import com.jsu.po.MyMark;
 import com.jsu.po.UserBean;
 
@@ -87,10 +88,10 @@ public class IUserDaoImpl implements IUserDao {
 	public List FindPosition(double latitude, double longitude , double distance) throws SQLException {
 		// TODO Auto-generated method stub
 		
-		double r = 6371;//µØÇò°ë¾¶Ç§Ã×  
-	    double dis = distance;//0.5Ç§Ã×¾àÀë  
+		double r = 6371;//ï¿½ï¿½ï¿½ï¿½ë¾¶Ç§ï¿½ï¿½  
+	    double dis = distance;//0.5Ç§ï¿½×¾ï¿½ï¿½ï¿½  
 	    double dlng =  2*Math.asin(Math.sin(dis/(2*r))/Math.cos(latitude*Math.PI/180));  
-	    dlng = dlng*180/Math.PI;//½Ç¶È×ªÎª»¡¶È  
+	    dlng = dlng*180/Math.PI;//ï¿½Ç¶ï¿½×ªÎªï¿½ï¿½ï¿½ï¿½  
 	    double dlat = dis/r;  
 	    dlat = dlat*180/Math.PI;          
 	    double minlat =latitude-dlat;  
@@ -113,6 +114,21 @@ public class IUserDaoImpl implements IUserDao {
 		// TODO Auto-generated method stub
 		
 		List user  = getHibernateTemplate().find("from UserBean where userphone like '%"+ pattern +"%' or username  like '%"+ pattern +"%' " );
+		
+		return user;
+	}
+	@Override
+	public void SaveImage(Image image) throws SQLException {
+		// TODO Auto-generated method stub
+		getHibernateTemplate().save(image);
+		
+	}
+
+	@Override
+	public List QueryImage(String image_id) throws SQLException {
+		// TODO Auto-generated method stub
+		
+		List user  = getHibernateTemplate().find("from Image where image_id ="+image_id );
 		
 		return user;
 	}

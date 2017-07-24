@@ -9,3 +9,6 @@
 /struts.xml
 /UsersCondition.hbm.xml
 /Address.hbm.xml
+/Order.hbm.xml
+/Upload.hbm.xml
+/Image.hbm.xml

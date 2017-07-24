@@ -3,6 +3,7 @@ package com.jsu.service;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.jsu.po.Image;
 import com.jsu.po.MyMark;
 import com.jsu.po.UserBean;
 
@@ -26,5 +27,10 @@ public interface IUserService {
     public List getPosition(String user_phone) throws SQLException;
     
     public List FindPosition(double latitude , double longitude , double distance)throws SQLException;
+    
+    public void SaveImage(Image image) throws SQLException;
+    
+    public List QueryImage(String image_id) throws SQLException;
+
 
 }

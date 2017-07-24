@@ -1,14 +1,25 @@
 package com.jsu.action;
 
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.jsu.Iservice.FriendService;
 import com.jsu.Iservice.UserService;
 import com.jsu.po.Friends;
+import com.jsu.po.Image;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class FriendAction extends ActionSupport{
@@ -121,5 +132,96 @@ public class FriendAction extends ActionSupport{
 	       }
 
 	    }
+	private String urlpath;
+	private String result = null;
+    private String fileName = null;
+    private String savePath = null;
+    private String image_id ;
+    
+ 
+    public String getImage_id() {
+		return image_id;
+	}
+
+	public void setImage_id(String image_id) {
+		this.image_id = image_id;
+	}
+
+	public String getResult() {
+        return result;
+    }
+ 
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+ 
+    public void setSavePath(String savePath) {
+        this.savePath = savePath;
+    }
+
+public String uploadFile() throws Exception {
+    	
+        ActionContext context = ActionContext.getContext();
+        HttpServletRequest request = (HttpServletRequest) context
+                .get(ServletActionContext.HTTP_REQUEST);
+        
+        String realPath = ServletActionContext.getServletContext().getRealPath(
+                savePath);
+ 
+        File dir = new File(realPath);
+        
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        
+        File file = new File(dir, fileName);
+        file.deleteOnExit();
+        file.createNewFile();
+        
+        
+        urlpath = realPath+File.separator+fileName;
+        
+        BufferedInputStream inBuff = null;
+        FileOutputStream output = null;
+        BufferedOutputStream outBuff = null;
+        
+        try {
+        	
+            inBuff = new BufferedInputStream(request.getInputStream());
+            output = new FileOutputStream(file);
+            outBuff = new BufferedOutputStream(output);
+ 
+            byte[] b = new byte[1024 * 8];
+            
+            int len;
+            
+            while ((len = inBuff.read(b)) != -1) {
+                outBuff.write(b, 0, len);
+            }
+           
+            outBuff.flush();
+            
+            Image image = new Image();
+            image.setImage_id(image_id);
+            image.set_uid(UUID.randomUUID().toString().replace("-",""));
+            image.setImage_url("http://192.168.137.1:1314/Solidarity/upload/"+fileName);
+            
+            UserService userservice = (UserService) ApplicationContextHelper.getBean("userService");
+            userservice.SaveImage(image);
+            
+            return SUCCESS;
+        } finally {
+            if (inBuff != null) {
+                inBuff.close();
+            }
+            if (output != null) {
+                output.close();
+            }
+            if (outBuff != null) {
+                outBuff.close();
+            }
+        }
+    }
+
 	
 }

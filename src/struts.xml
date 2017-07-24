@@ -31,18 +31,13 @@
             </result> 
         </action>
         
-        
-        
         <action name="getgroup" class="com.jsu.action.FriendGroup" method="Test">
-        
             <result name="success" type="json">  
                     <param name="root">list2</param>  
             </result>
-             
         </action>
         
         <action name="addfriend" class="com.jsu.action.FriendAction" method="Add">
-        
             <result name="success" type="json">  
                     <param name="root">list</param>  
             </result>
@@ -67,6 +62,43 @@
                  <param name="root">list</param>  
             </result> 
         </action>
+        
+        <action name="queryorder" class="com.jsu.action.OrderAction" method="Query">
+			 <result name="success" type="json">  
+                 <param name="root">list</param>  
+            </result> 
+    	</action>
+    	
+    	 <action name="addorder" class="com.jsu.action.OrderAction" method="Add">
+			 <result name="success" type="json">  
+                 <param name="root">list</param>  
+            </result> 
+    	</action>
+    	
+    	
+    	<action name="upload" class="com.jsu.action.FriendAction"
+           method="uploadFile">
+           <interceptor-ref name="fileUpload">
+               <!-- 配置允许上传的文件类型，多个用","分隔 -->
+               <!-- 3gp,avi,bmp,(jpg\jpeg),mp4,wav -->
+               <param name="allowedTypes">
+                   video/3gpp,video/x-msvideo,application/x-MS-bmp,image/jpeg,video/mp4,audio/x-wav
+               </param>
+               <!-- 配置允许上传的文件大小，单位字节 100M -->
+               <param name="maximumSize">100000000</param>
+           </interceptor-ref>
+           
+           
+           <interceptor-ref name="defaultStack" />
+           
+           <param name="savePath">/upload</param>
+           
+           <result type="json">
+               <param name="root">urlpath</param>
+           </result>
+           
+      </action>
+    	
    </package> 
         
         <constant name="struts.i18n.encoding" value="utf-8"></constant>

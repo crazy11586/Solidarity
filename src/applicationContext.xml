@@ -92,7 +92,6 @@
 		<aop:advisor pointcut-ref="smMethod" advice-ref="smAdvice" />
 	</aop:config>
 
-	
 	<!-- Service************************************************* -->
 	<bean name="userService" class="com.jsu.Iservice.UserService">
 		<property name="IUserDaoImpl" ref="userDao"></property>
@@ -108,6 +107,11 @@
 	<bean name="addressService" class="com.jsu.Iservice.AddressService">
 		<property name="IAddressDaoImpl" ref="addressDao"></property>
 	</bean>
+	
+	<bean name="orderService" class="com.jsu.Iservice.OrderService">
+		<property name="IOrderDaoImpl" ref="orderDao"></property>
+	</bean>
+	
 	<!-- Dao******************************************************** -->
 	<bean name="userDao" class="com.jsu.dao.IUserDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
@@ -122,4 +126,8 @@
 	<bean name="addressDao" class="com.jsu.dao.IAddressDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean name="orderDao" class="com.jsu.dao.IOrderDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
 </beans> 
