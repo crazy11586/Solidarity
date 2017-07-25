@@ -9,6 +9,8 @@
 
 		<id name="order_id" column="order_id" type="int">
 		</id>
+		<property name="image_id" column="image_id" type="string"
+			length="45" unique="false" />
 		
 		<property name="order_no" column="order_no" type="string"
 			length="20" unique="false" />	

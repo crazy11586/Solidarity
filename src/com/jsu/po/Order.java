@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class Order {
     
+	private String image_id;
+	
     private Integer order_id;
     //流水号
 	private String order_no;
@@ -38,6 +40,15 @@ public class Order {
     
 	//关联的状态表
     private String user_order_statement_id;
+
+   
+	public String getImage_id() {
+		return image_id;
+	}
+
+	public void setImage_id(String image_id) {
+		this.image_id = image_id;
+	}
 
 	public Integer getOrder_id() {
 		return order_id;
